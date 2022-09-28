@@ -2,6 +2,7 @@ const User = require('./User');
 const Post = require('./Post');
 const Comment = require('./Comment');
 const Relationship = require('./Relationship');
+const Follower = require('./Follower');
 
 Post.belongsTo(User, {
   foreignKey: "user_id"
@@ -23,17 +24,19 @@ Post.hasMany(Comment, {
 Comment.belongsTo(User, {
   foreignKey: 'user_id'
 });
-
-User.belongsToMany(User, { 
-  as: 'friends',
+//THIS IS THE USER_ID of RELATIONSHIP
+User.belongsToMany(Follower, { 
+  as: 'followers',
   foreignKey: 'user_id',
   through: Relationship
 });
-User.belongsToMany(User, { 
-  as: 'userFriends',
-  foreignKey: 'friend_id',
+
+//THIS IS THE FRIEND_ID of RELATIONSHIP
+Follower.belongsToMany(User, { 
+  as: 'followees',
+  foreignKey: 'follower_id',
   through: Relationship
 });
 
 
-module.exports = { User, Post, Comment, Relationship };
+module.exports = { User, Post, Comment, Relationship, Follower };
