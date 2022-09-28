@@ -1,0 +1,8 @@
+<section class="container">
+  <h3 class="user-name">{{user.name}}</h3>
+  <section class="flex-row justify-center">
+    {{#each user.post}}
+    {{> indivpost-details}}
+    {{/each}}
+  </section>
+</section>
