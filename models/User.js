@@ -16,7 +16,7 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    username: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -32,9 +32,18 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [8],
+        len: [6],
       },
     },
+    profile_image_filename: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    friend_id:{
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+  //   
     
   },
   {

@@ -1,8 +1,7 @@
 const User = require('./User');
 const Post = require('./Post');
 const Comment = require('./Comment');
-
-// TODO: ADD RELATIONSHIPS
+const Relationship = require('./Relationship');
 
 Post.belongsTo(User, {
   foreignKey: "user_id"
@@ -25,9 +24,16 @@ Comment.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
-User.hasMany(Comment, {
+User.belongsToMany(User, { 
+  as: 'friends',
   foreignKey: 'user_id',
-  onDelete: 'CASCADE'
+  through: Relationship
+});
+User.belongsToMany(User, { 
+  as: 'userFriends',
+  foreignKey: 'friend_id',
+  through: Relationship
 });
 
-module.exports = { User, Post, Comment };
+
+module.exports = { User, Post, Comment, Relationship };
