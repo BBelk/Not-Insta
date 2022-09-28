@@ -1,0 +1,22 @@
+[
+  {
+    "body_text": "Wow, what a mountain. I hear its pretty tall",
+    "user_id": 2,
+    "post_id": 1
+  },
+  {
+    "body_text": "I hate Mount Everest and I hate you",
+    "user_id": 3,
+    "post_id": 1
+  },
+  {
+    "body_text": "Ok great that's great",
+    "user_id": 5,
+    "post_id": 4
+  },
+  {
+    "body_text": "Im sick of mountains, please make it stop",
+    "user_id": 2,
+    "post_id": 6
+  }
+]
