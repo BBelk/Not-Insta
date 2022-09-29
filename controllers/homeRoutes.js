@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { User, Post, Comment } = require("../models");
+const auth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
   const postData = await Post.findAll({
@@ -13,6 +14,33 @@ router.get("/", async (req, res) => {
   res.render("homepage", { posts, loggedIn: req.session.loggedIn });
 });
 
+router.get("/upload", auth, async (req, res) => {
+  try {
+    res.render("upload");
+  }catch(err) {
+    res.json(err);
+  }
+});
+
+router.get("/profile", auth, async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      include: [
+        {
+          model: Post, 
+        },
+      ],
+    });
+    if (!userData) {
+      res.status(404).json({ message: "No user found with this ID!" });
+      return;
+    }
+    const user = userData.get({ plain: true });
+    res.render("userwall", { ...user, loggedIn: req.session.loggedIn });
+  } catch(err) {
+    res.json(err);
+  }
+});
 router.get("/post/:id", async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
