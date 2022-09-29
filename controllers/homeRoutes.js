@@ -13,12 +13,21 @@ router.get("/", async (req, res) => {
   const posts = postData.map((post) => post.get());
   res.render("homepage", { posts, loggedIn: req.session.loggedIn });
 });
+
+router.get("/upload", auth, async (req, res) => {
+  try {
+    res.render("upload");
+  }catch(err) {
+    res.json(err);
+  }
+});
+
 router.get("/profile", auth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       include: [
         {
-          model: Post,
+          model: Post, 
         },
       ],
     });
@@ -28,7 +37,7 @@ router.get("/profile", auth, async (req, res) => {
     }
     const user = userData.get({ plain: true });
     res.render("userwall", { ...user, loggedIn: req.session.loggedIn });
-  } catch (err) {
+  } catch(err) {
     res.json(err);
   }
 });
