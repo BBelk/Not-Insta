@@ -51,7 +51,10 @@ router.get("/profile", auth, async (req, res) => {
   }
 });
 
+const serialize = (data) => JSON.parse(JSON.stringify(data));
+
 router.get("/user/:id", async (req, res) => {
+  
   try {
     const userData = await User.findByPk(req.params.id, {
       include: [
@@ -60,24 +63,28 @@ router.get("/user/:id", async (req, res) => {
         },
       ],
     });
-    let ships;
-    if (req.session.user_id) {
-      const relationshipData = await Relationship.findAll({
-        where: {
-          followee_id: req.session.user_id,
-        },
-      });
-      ships = relationshipData.map((relationship) => relationship.get());
-    }
     if (!userData) {
       res.status(404).json({ message: "No user found with this ID!" });
       return;
     }
     const user = userData.get({ plain: true });
-    // let isUser = false;
-    // if (user.id == req.session.user_id) {
-    //   isUser = true;
-    // }
+    let ships;
+    if (req.session.user_id) {
+      const relationshipData = await Relationship.findOne({
+        where: {
+          followee_id: req.session.user_id,
+        },
+        where:{
+          follower_id: user.id,
+        }
+      });
+      // ships = relationshipData.map((relationship) => relationship.get());
+      ships = serialize(relationshipData); 
+      console.log("+++SHIPS+++", ships)
+    }
+    if(req.session.user_id == req.params.id){
+      res.redirect("/profile");return;
+    }
     res.render("profile", {
       user,
       ships,
