@@ -1,11 +1,14 @@
 
 <section class="container">
-  {{!-- <section class="container">
-    {{#if isUser}}
-    <h1>HI</h1>
-    {{/if}}
-  </section> --}}
   <h3 class="user-name">{{user.username}}</h3>
+  <section class="container">
+    {{#if ships}}
+    <h1>UNFOLLOW</h1>
+    {{/if}}
+    {{#unless ships}}
+    <h1>FOLLOW</h1>
+    {{/unless}}
+  </section>
   <section class="flex-row justify-center">
     {{#each user.posts}}
     {{> indivpost-details}}
