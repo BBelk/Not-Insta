@@ -1,41 +1,32 @@
-const sequelize = require('../config/connection');
-const { User, Post, Comment, Relationship } = require('../models');
+const sequelize = require("../config/connection");
+const { User, Post, Comment, Relationship } = require("../models");
 
-const userData = require('./userData.json');
-const postData = require('./postData.json');
-const commentData = require('./commentData.json');
-const relationshipData = require('./relationshipData.json');
+const userData = require("./userData.json");
+const postData = require("./postData.json");
+const commentData = require("./commentData.json");
+const relationshipData = require("./relationshipData.json");
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
   await User.bulkCreate(userData, {
-    individualHooks: true,
-    returning: true,
+    // individualHooks: true,
+    // returning: true,
   });
 
   console.log("---------- USER DATA CREATED ----------");
-  
-  await Post.bulkCreate(postData, {
-    individualHooks: true,
-    returning: true,
-  });
+
+  await Post.bulkCreate(postData, {});
 
   console.log("---------- POST DATA CREATED ----------");
 
-  await Comment.bulkCreate(commentData, {
-    individualHooks: true,
-    returning: true,
-  });
+  await Comment.bulkCreate(commentData, {});
 
   console.log("---------- COMMENT DATA CREATED ----------");
 
-  await Relationship.bulkCreate(relationshipData, {
-    individualHooks: true,
-    returning: true,
-  });
+  await Relationship.bulkCreate(relationshipData, {});
 
-  console.log("---------- Relationship DATA CREATED ----------");
+  console.log("---------- RELATIONSHIP DATA CREATED ----------");
 
   process.exit(0);
 };
