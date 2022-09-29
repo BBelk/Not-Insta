@@ -15,14 +15,14 @@ Relationship.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    user_id: {
+    followee_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
         key: 'id',
       }
     },
-    friend_id: {
+    follower_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',

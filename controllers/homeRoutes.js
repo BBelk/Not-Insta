@@ -10,10 +10,16 @@ router.get("/", async (req, res) => {
       },
     ],
   });
-  const relationshipData = await Relationship.findAll();
-  
+  let ships;
+  if (req.session.user_id) {
+  const relationshipData = await Relationship.findAll({
+    where: {
+      followee_id: req.session.user_id,
+    }
+  });
+  ships = relationshipData.map((relationship) => relationship.get());
+}
   const posts = postData.map((post) => post.get());
-  const ships = relationshipData.map((relationship) => relationship.get());
   res.render("homepage", { posts, ships, loggedIn: req.session.loggedIn });
 });
 
