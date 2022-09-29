@@ -26,7 +26,10 @@
   <main>
     <aside>
       <h2>Write something here</h2>
+      {{#each ships}}
       {{> user-details}}
+      {{friend_id}}
+      {{/each}}
     </aside>
     <div class="wall">
       {{{body}}}
