@@ -1,7 +1,13 @@
+
 <section class="container">
-  <h3 class="user-name">{{username}}</h3>
+  {{!-- <section class="container">
+    {{#if isUser}}
+    <h1>HI</h1>
+    {{/if}}
+  </section> --}}
+  <h3 class="user-name">{{user.username}}</h3>
   <section class="flex-row justify-center">
-    {{#each posts}}
+    {{#each user.posts}}
     {{> indivpost-details}}
     {{/each}}
   </section>

@@ -1,7 +1,9 @@
 <section class="painting">
   <img src="{{image_filename}}" alt="{{body_text}}">
   <div class="painting-details">
-    <h3>Username:{{user.username}}</h3>
+    <a href="/user/{{user.id}}">
+      <h3>Username:{{user.username}}</h3>
+    </a>
     <p>Likes: {{likes}}</p>
     <p>{{body_text}}</p>
   </div>
