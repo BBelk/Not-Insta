@@ -1,29 +1,34 @@
 [
   {
+    "id": 1,
     "username": "Bruce Belk",
     "email": "bb@gmail.com",
     "password": "password12345",
     "profile_image_filename": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_Retriever_Dukedestiny01_drvd.jpg"
   },
   {
+    "id": 2,
     "username": "JR",
     "email": "jr@gmail.com",
     "password": "password12345",
     "profile_image_filename": "https://upload.wikimedia.org/wikipedia/commons/2/26/Rottweiler_standing_facing_left.jpg"
   },
   {
+    "id": 3,
     "username": "LS",
     "email": "ls@gmail.com",
     "password": "password12345",
     "profile_image_filename": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Golden_Doodle_Standing_%28HD%29.jpg"
   },
   {
+    "id": 4,
     "username": "NS",
     "email": "ns@gmail.com",
     "password": "password12345",
     "profile_image_filename": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Chihuahua1_bvdb.jpg"
   },
   {
+    "id": 5,
     "username": "SP",
     "email": "sp@gmail.com",
     "password": "password12345",
