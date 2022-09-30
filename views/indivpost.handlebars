@@ -1,10 +1,21 @@
 <section class="painting">
-  <img src="{{image_filename}}" alt="{{body_text}}">
+  <img src="{{post.image_filename}}" alt="{{post.body_text}}">
   <div class="painting-details">
-    <a href="/user/{{user.id}}">
-      <h3>Username:{{user.username}}</h3>
+    <a href="/user/{{post.user.id}}">
+      <h3>Username:{{post.user.username}}</h3>
     </a>
-    <p>Likes: {{likes}}</p>
+    <p>Likes: {{post.likes}}</p>
+    <p>{{post.body_text}}</p>
+    {{!-- <p>{{comments.body_text}}</p>
+    <p>{{comment.body_text}}</p>
+    <p>{{comment.body_text}}</p> --}}
+    {{#each post.comments}}
+    <h1>HI</h1>
+    comment.
+    {{user.user_id.username}}
+    
     <p>{{body_text}}</p>
+    <p>{{user_id}}</p>
+    {{/each}}
   </div>
 </section>
