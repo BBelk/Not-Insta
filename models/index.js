@@ -3,6 +3,7 @@ const Post = require('./Post');
 const Comment = require('./Comment');
 const Relationship = require('./Relationship');
 const Follower = require('./Follower');
+const Gallery = require('./Gallery');
 
 Post.belongsTo(User, {
   foreignKey: "user_id"
@@ -38,5 +39,4 @@ Follower.belongsToMany(User, {
   through: Relationship
 });
 
-
-module.exports = { User, Post, Comment, Relationship, Follower };
+module.exports = { User, Post, Comment, Relationship, Follower, Gallery };
