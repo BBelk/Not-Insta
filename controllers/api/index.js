@@ -2,13 +2,14 @@ const router = require('express').Router();
 const userRoutes = require('./userRoutes');
 const postRoutes = require('./postRoutes');
 const commentRoutes = require('./commentRoutes');
+const relationshipRoutes = require('./relationshipRoutes');
 const { unlinkSync } = require('fs');
 
 
 router.use('/users', userRoutes);
 router.use('/post', postRoutes);
 router.use('/comment', commentRoutes);
-
+router.use('/relationships', relationshipRoutes);
 
 // const router = require('express').Router();
 const { upload, uploadToCloudinary } = require('../../controllers/upload');

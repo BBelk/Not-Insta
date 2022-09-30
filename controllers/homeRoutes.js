@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Post, Comment, Relationship } = require("../models");
+const { User, Post, Comment, Relationship, Follower } = require("../models");
 const auth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
@@ -61,12 +61,16 @@ router.get("/profile", auth, async (req, res) => {
 const serialize = (data) => JSON.parse(JSON.stringify(data));
 
 router.get("/user/:id", async (req, res) => {
-  
+  const pageId = req.params.id;
   try {
     const userData = await User.findByPk(req.params.id, {
       include: [
         {
           model: Post,
+        },
+        {
+          model: Follower,
+          as: 'followers'
         },
       ],
     });
@@ -75,34 +79,31 @@ router.get("/user/:id", async (req, res) => {
       return;
     }
     const user = userData.get({ plain: true });
-    let ships;
-    if (req.session.user_id) {
-      const relationshipData = await Relationship.findOne({
-        where: {
-          followee_id: req.session.user_id,
-        },
-        where:{
-          follower_id: user.id,
-        }
-      });
-      // ships = relationshipData.map((relationship) => relationship.get());
-      ships = serialize(relationshipData); 
-      // console.log("+++SHIPS+++", ships)
-    }
-    if(req.session.user_id == req.params.id){
-      res.redirect("/profile");return;
-    }
     let isUser = false;
-    if(req.session.user_id == user.id){
-      isUser = true;
+    let hasRelationship = false;
+    if (req.session.user_id) {
+      if(req.session.user_id == req.params.id){
+        res.redirect("/profile");
+        return;
+      }
+      if(req.session.user_id == user.id){
+        isUser = true;
+      }
+      if(user.followers.find((follower) => follower.id === req.session.user_id)){
+        hasRelationship = true;
+      }
     }
+    console.log("_______________", user.followers);
+    console.log("_______________", hasRelationship);
     res.render("profile", {
       user,
-      ships,
+      hasRelationship,
       isUser,
+      pageId,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });
