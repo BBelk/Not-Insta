@@ -11,11 +11,12 @@
     <p>{{comment.body_text}}</p> --}}
     {{#each post.comments}}
     <h1>HI</h1>
-    comment.
-    {{user.user_id.username}}
+    {{!-- comment. --}}
+    {{commentUser.username}}
+    {{commentUser.id}}
     
     <p>{{body_text}}</p>
-    <p>{{user_id}}</p>
+    {{!-- <p>{{user_id}}</p> --}}
     {{/each}}
   </div>
 </section>
