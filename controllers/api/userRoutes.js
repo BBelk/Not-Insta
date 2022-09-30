@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Follower } = require('../../models');
+const { User, Follower, Relationship } = require('../../models');
 
 router.post('/', async (req, res) => {
   try {
@@ -70,6 +70,33 @@ router.post('/login', async (req, res) => {
   } catch (err) {
     res.status(400).json(err);
   }
+});
+
+router.put('/:id/follow/toggle', async (req, res) => {
+  const userInstance = await User.findByPk(req.params.id);
+  const followerInstance = await Follower.findByPk(req.session.user_id); //req.session.user_id
+  const relationship = await Relationship.findOne({
+    where: {
+      follower_id: followerInstance.id,
+      followee_id: userInstance.id
+    }
+  });
+  if (relationship) {
+    await relationship.destroy();
+    await relationship.save();
+  } else {
+    await Relationship.create({
+      follower_id: followerInstance.id,
+      followee_id: userInstance.id
+    });
+  }
+  const followee = await User.findByPk(req.params.id, {
+    include: [{
+      model: Follower,
+      as: 'followers'
+    }]
+  });
+  res.json(followee);
 });
 
 router.post('/logout', (req, res) => {

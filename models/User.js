@@ -39,10 +39,6 @@ User.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
-    friend_id:{
-      type: DataTypes.INTEGER,
-      allowNull: true,
-    },
   //   
     
   },

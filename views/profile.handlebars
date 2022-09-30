@@ -1,14 +1,15 @@
 
 <section class="container">
-  <h3 class="user-name">{{user.username}}</h3>
+  <h1 class="user-name">{{user.username}}</h1>
   <section class="container">
     {{#unless isUser}}
-    {{#if ships}}
-    <h1>UNFOLLOW</h1>
-    {{/if}}
-    {{#unless ships}}
-    <h1>FOLLOW</h1>
-    {{/unless}}
+    <buttton id="follow-btn"class="btn-no-style">
+      {{#if hasRelationship}}
+      UNFOLLOW
+      {{else}}
+      FOLLOW
+      {{/if}}
+    </buttton>
     {{/unless}}
   </section>
   <section class="flex-row justify-center">
@@ -17,3 +18,5 @@
     {{/each}}
   </section>
 </section> 
+<div id="pageId">{{pageId}}</div>
+<script src="/js/follow.js"></script>

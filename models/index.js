@@ -28,15 +28,17 @@ Comment.belongsTo(User, {
 //THIS IS THE USER_ID of RELATIONSHIP
 User.belongsToMany(Follower, { 
   as: 'followers',
-  foreignKey: 'user_id',
-  through: Relationship
+  foreignKey: 'followee_id',
+  through: Relationship,
+  unique: false
 });
 
 //THIS IS THE FRIEND_ID of RELATIONSHIP
 Follower.belongsToMany(User, { 
   as: 'followees',
   foreignKey: 'follower_id',
-  through: Relationship
+  through: Relationship,
+  unique: false
 });
 
 module.exports = { User, Post, Comment, Relationship, Follower, Gallery };
