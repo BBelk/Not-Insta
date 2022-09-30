@@ -1,6 +1,6 @@
-'use strict';
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
-const { Model } = require('sequelize');
 class Gallery extends Model {}
 
 Gallery.init(
@@ -14,4 +14,5 @@ Gallery.init(
     modelName: 'gallery',
   }
 );
+
 module.exports = Gallery;
