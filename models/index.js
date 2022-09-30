@@ -23,7 +23,13 @@ Post.hasMany(Comment, {
 });
 
 Comment.belongsTo(User, {
-  foreignKey: 'user_id'
+  foreignKey: 'user_id',
+  as: 'commentUser'
+});
+
+User.hasMany(Comment, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE'
 });
 //THIS IS THE USER_ID of RELATIONSHIP
 User.belongsToMany(Follower, { 

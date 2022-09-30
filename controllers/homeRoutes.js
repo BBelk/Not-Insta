@@ -112,22 +112,52 @@ router.get("/post/:id", async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: [
-        {
-          model: User,
+        {model: User, 
+          // as: 'postUser'
           // attributes: ["username"],
         },
-        {
-          model: Comment,
-          include: [User],
-        },
-      ],
-    });
+        {model: Comment,
+        include: 
+          {model: User,
+          as: "commentUser",
+          attributes: ['username'],
+          raw: true}
+        }
+        ]},
+      
+      
+    );
+    
     if (!postData) {
       res.status(404).json({ message: "No post found with this ID!" });
       return;
     }
+    // const posts = postData.map((post) => post.get());
     const post = postData.get({ plain: true });
-    res.render("indivpost", { ...post, loggedIn: req.session.loggedIn });
+    // const post = serialize(postData);
+    // const post = postData;
+
+    // let comments;
+    // const commentData = await Comment.findAll({
+    //   where: {
+    //     post_id: req.params.id,
+    //   },
+    //   include: [
+    //     {
+    //       model: User,
+    //     }
+    //   ],
+    // });
+    // comments = commentData.map((comment) => comment.get());
+    
+    // console.log(comments, "=============================================")
+    
+    // const comments = commentData.get({ plain: true });
+    console.log(post, "---------------================---------------");
+    res.render("indivpost", { 
+      post, 
+      // comments, 
+      loggedIn: req.session.loggedIn });
   } catch (err) {
     res.status(500).json(err);
   }
