@@ -45,7 +45,14 @@ router.get("/profile", auth, async (req, res) => {
       return;
     }
     const user = userData.get({ plain: true });
-    res.render("profile", { user, loggedIn: req.session.loggedIn });
+    let isUser = false;
+    if(req.session.user_id == user.id){
+      isUser = true;
+    }
+    res.render("profile", { 
+      user,
+      isUser, 
+      loggedIn: req.session.loggedIn });
   } catch (err) {
     res.json(err);
   }
@@ -80,16 +87,20 @@ router.get("/user/:id", async (req, res) => {
       });
       // ships = relationshipData.map((relationship) => relationship.get());
       ships = serialize(relationshipData); 
-      console.log("+++SHIPS+++", ships)
+      // console.log("+++SHIPS+++", ships)
     }
     if(req.session.user_id == req.params.id){
       res.redirect("/profile");return;
     }
+    let isUser = false;
+    if(req.session.user_id == user.id){
+      isUser = true;
+    }
     res.render("profile", {
       user,
       ships,
+      isUser,
       loggedIn: req.session.loggedIn,
-      // isUser: isUser,
     });
   } catch (err) {
     res.status(500).json(err);
