@@ -60,6 +60,27 @@ router.get("/profile", auth, async (req, res) => {
 
 const serialize = (data) => JSON.parse(JSON.stringify(data));
 
+router.get('/get/:id', async (req, res) => {
+  //testing comment
+  try{
+    const commentData = await Comment.findByPk(req.params.id, {
+      include: [
+        {model: User,
+        as: 'commentUser'}
+      ]
+    });
+    if (!commentData) {
+      res.status(404).json({ message: "No comment found with this ID!" });
+      return;
+    }
+    const comment = commentData.get({ plain: true });
+    res.status(200).json(comment);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 router.get("/user/:id", async (req, res) => {
   const pageId = req.params.id;
   try {
@@ -113,17 +134,18 @@ router.get("/post/:id", async (req, res) => {
     const postData = await Post.findByPk(req.params.id, {
       include: [
         {model: User, 
+          raw:false
           // as: 'postUser'
           // attributes: ["username"],
+          
         },
         {model: Comment,
         include: 
           {model: User,
           as: "commentUser",
-          attributes: ['username'],
-          raw: true}
+        raw:false}
         }
-        ]},
+        ], raw:false},
       
       
     );
@@ -133,7 +155,9 @@ router.get("/post/:id", async (req, res) => {
       return;
     }
     // const posts = postData.map((post) => post.get());
+    // console.log(postData, "---------------================---------------");
     const post = postData.get({ plain: true });
+    console.log(post, "---------------================---------------");
     // const post = serialize(postData);
     // const post = postData;
 
@@ -153,7 +177,6 @@ router.get("/post/:id", async (req, res) => {
     // console.log(comments, "=============================================")
     
     // const comments = commentData.get({ plain: true });
-    console.log(post, "---------------================---------------");
     res.render("indivpost", { 
       post, 
       // comments, 
