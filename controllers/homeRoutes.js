@@ -143,7 +143,7 @@ router.get("/post/:id", async (req, res) => {
         include: 
           {model: User,
           as: "commentUser",
-        raw:false}
+        raw:false},
         }
         ], raw:false},
       
@@ -166,6 +166,7 @@ router.get("/post/:id", async (req, res) => {
     res.render("indivpost", { 
       post,
       isUser,
+      loggedInUserId: req.session.user_id,
       loggedIn: req.session.loggedIn });
   } catch (err) {
     res.status(500).json(err);
