@@ -1,17 +1,24 @@
 <section class="painting">
   <img src="{{post.image_filename}}" alt="{{post.body_text}}">
   <div class="painting-details">
-    {{#if isUser}}
-    <h1>EDIT POST</h1>
-    {{/if}}
+    {{!-- this compares the logged in user to the post user --}}
+    {{!-- full list of comparers is here: https://gist.github.com/doginthehat/1890659/2a3c5a269fb2282cc9ce7526bb99f93d5559ac65 --}}
+    {{#compare session.user_id post.user.id operator="=="}}
+    <h5>Edit post or delete</h5>
+    {{/compare}}
+    <h2>Hellomoto{{loggedInUserId}}</h2>
+
+    
     <a href="/user/{{post.user.id}}">
       <h3>Username:{{post.user.username}}</h3>
     </a>
     <p>Likes: {{post.likes}}</p>
     <p>Post Text: {{post.body_text}}</p>
 
-    {{#each post.comments}}
-    {{> comment-details}}
+    {{#each post.comments}} 
+    {{#> comment-details}}
+    <h5>No comments</h5>
+    {{/comment-details}}
     {{/each}}
     {{!-- TODO add comment --}}
   </div>
