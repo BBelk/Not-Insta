@@ -6,8 +6,6 @@
     {{#compare session.user_id post.user.id operator="=="}}
     <h5>Edit post or delete</h5>
     {{/compare}}
-    <h2>Hellomoto{{loggedInUserId}}</h2>
-
     
     <a href="/user/{{post.user.id}}">
       <h3>Username:{{post.user.username}}</h3>
@@ -16,7 +14,7 @@
     <p>Post Text: {{post.body_text}}</p>
 
     {{#each post.comments}} 
-    {{#> comment-details}}
+    {{#> comment-details this parent=../this}}
     <h5>No comments</h5>
     {{/comment-details}}
     {{/each}}
