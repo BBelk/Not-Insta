@@ -157,29 +157,15 @@ router.get("/post/:id", async (req, res) => {
     // const posts = postData.map((post) => post.get());
     // console.log(postData, "---------------================---------------");
     const post = postData.get({ plain: true });
-    console.log(post, "---------------================---------------");
-    // const post = serialize(postData);
-    // const post = postData;
-
-    // let comments;
-    // const commentData = await Comment.findAll({
-    //   where: {
-    //     post_id: req.params.id,
-    //   },
-    //   include: [
-    //     {
-    //       model: User,
-    //     }
-    //   ],
-    // });
-    // comments = commentData.map((comment) => comment.get());
+    // console.log(post, "---------------================---------------");
+    let isUser = false;
+    if(req.session.user_id === post.user.id){
+      isUser = true;
+    }
     
-    // console.log(comments, "=============================================")
-    
-    // const comments = commentData.get({ plain: true });
     res.render("indivpost", { 
-      post, 
-      // comments, 
+      post,
+      isUser,
       loggedIn: req.session.loggedIn });
   } catch (err) {
     res.status(500).json(err);
