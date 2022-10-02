@@ -15,9 +15,12 @@ router.use('/relationships', relationshipRoutes);
 const { upload, uploadToCloudinary } = require('../../controllers/upload');
 const db = require('../../models');
 
+// let captionText = import {GetCaption} from ('./base.js');
+
 // Uses middleware to process the file upload
-router.post('/upload', upload, async (req, res) => {
+router.post('/upload/:newCaption', upload, async (req, res) => {
   const { file } = req;
+  const caption = req.params.newCaption;
   // Captures the file data from the upload process and sends it to Cloudinary
   const result = await uploadToCloudinary(file.path, { folder: 'notinsta' });
   // When the upload is complete, delete it from the /tmp directory
@@ -29,13 +32,12 @@ router.post('/upload', upload, async (req, res) => {
     // name: file.originalname,
     // description: '',
     image_filename: result.secure_url,
-    // body_text: result.secure_url,
-    body_text: 'idk lol',
+    body_text: caption,
     user_id: req.session.user_id,
   };
 
-  console.log('CLOUDINARY', result);
-  console.log('FILE', file);
+  // console.log('CLOUDINARY', result);
+  // console.log('FILE', file);
 
   // Create the Gallery item
   const item = await db.Post.create(data);
