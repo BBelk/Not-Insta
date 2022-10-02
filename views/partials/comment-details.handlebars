@@ -1,15 +1,31 @@
     <p>------------------------------------------------</p>
     {{!-- this SHOULD compare the logged in user to the comment user --}}
     {{!-- full list of comparers is here: https://gist.github.com/doginthehat/1890659/2a3c5a269fb2282cc9ce7526bb99f93d5559ac65 --}}
+    <div id="normalComment">
     {{#compare parent.session.user_id this.commentUser.id operator="=="}}
-    <h5>Edit comment</h5>
+    {{!-- <h5>Edit comment</h5> --}}
+    <button id="edit-comment" class="btn btn-warning" type="button" data-id="{{id}}" post-id="{{parent.post.id}}">Edit Comment</button>
     <button id="delete-comment" class="btn btn-danger" type="button" data-id="{{id}}" post-id="{{parent.post.id}}">Delete Comment</button>
     {{/compare}}
 
     <a href="/user/{{commentUser.id}}">
     Comment Author User: {{commentUser.username}}
     </a>
-    <p>Comment Text:{{body_text}}</p>
+    <p>Comment Text:<div id="actualComment">{{body_text}}</div></p>
+    </div>
+
+    <div id="editingComment">
+         <button id="finish-comment" class="btn btn-primary" type="button" data-id="{{id}}" post-id="{{parent.post.id}}">Finish Editing Comment</button>
+        <form class="form upload-form">
+      <div class="form-group">
+        <label for="body-post">Edited Comment:</label>
+        <input class="form-input" type="text" id="comment-input" />
+      </div>
+    </form>
+
+    </div>
+
+
     {{!-- {{if}} --}}
     <p>------------------------------------------------</p>
 
