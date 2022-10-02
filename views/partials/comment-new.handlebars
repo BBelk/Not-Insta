@@ -1,0 +1,13 @@
+    <p>------------------------------------------------</p>
+    {{!-- this SHOULD compare the logged in user to the comment user --}}
+    {{!-- full list of comparers is here: https://gist.github.com/doginthehat/1890659/2a3c5a269fb2282cc9ce7526bb99f93d5559ac65 --}}
+    {{#compare parent.session.user_id this.commentUser.id operator="=="}}
+    <h5>Edit comment or delete</h5>
+    {{/compare}}
+    <a href="/user/{{commentUser.id}}">
+    Comment Author User: {{commentUser.username}}
+    </a>
+    <p>Comment Text:{{body_text}}</p>
+    {{!-- {{if}} --}}
+    <p>------------------------------------------------</p>
+    

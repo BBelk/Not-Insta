@@ -4,7 +4,9 @@
     {{!-- this compares the logged in user to the post user --}}
     {{!-- full list of comparers is here: https://gist.github.com/doginthehat/1890659/2a3c5a269fb2282cc9ce7526bb99f93d5559ac65 --}}
     {{#compare session.user_id post.user.id operator="=="}}
-    <h5>Edit post or delete</h5>
+    <h5>Edit post</h5>
+    <button id="delete-post" class="btn-no-style" data-id="{{post.id}}">Delete</button>
+
     {{/compare}}
     
     <a href="/user/{{post.user.id}}">
@@ -21,3 +23,4 @@
     {{!-- TODO add comment --}}
   </div>
 </section>
+<script src="/js/indivpost.js"></script>
