@@ -1,6 +1,8 @@
 <section class="card">
-  <a href="/user/{{follower_id}}">
-    <header>{{username}}</header>
-    {{!-- <img src="{{url}}" class="img-fluid img-thumbnail" alt="{{name}}"> --}}
-  </a>
+  <div class="card-body">
+    <a href="/user/{{followee_id}}">
+      <h1 class="card-title">{{user.username}}{{followee_id}}</h1>
+      {{!-- <img src="{{url}}" class="img-fluid img-thumbnail" alt="{{name}}"> --}}
+    </a>
+  </div>
 </section>
