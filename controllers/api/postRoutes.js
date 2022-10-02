@@ -48,4 +48,24 @@ router.put("/:id", async (req, res) => {
   }
 });
 
+router.delete('/:id', async (req, res) => {
+  // delete one product by its `id` value
+  try {
+    const commentData = await Comment.destroy({
+      where: {
+        post_id: req.params.id,
+      },
+    });
+    const deletedPost = await Post.destroy({ //sequelize.org
+      where: {
+        id: req.params.id
+      }
+    });
+    
+    res.status(200).json(deletedPost);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
