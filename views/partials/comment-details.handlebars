@@ -14,6 +14,7 @@
     <p>Comment Text:<div id="actualComment">{{body_text}}</div></p>
     </div>
 
+    {{#compare parent.session.user_id this.commentUser.id operator="=="}}
     <div id="editingComment">
          <button id="finish-comment" class="btn btn-primary" type="button" data-id="{{id}}" post-id="{{parent.post.id}}">Finish Editing Comment</button>
         <form class="form upload-form">
@@ -31,4 +32,5 @@
 
     
     <script src="/js/comment-details.js"></script>
+    {{/compare}}
     
