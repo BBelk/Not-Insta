@@ -14,7 +14,6 @@
     {{#compare session.user_id post.user.id operator="=="}}
     <h5>Edit post</h5>
     <button id="delete-post" class="btn btn-danger" type="button" data-id="{{post.id}}">Delete</button>
-
     {{/compare}}
     
 
@@ -23,7 +22,11 @@
     <h5>No comments</h5>
     {{/comment-details}}
     {{/each}}
+
+    {{!-- {{#compare }} --}}
+    {{> comment-new}}
     {{!-- TODO add comment --}}
   </div>
 </section>
+
 <script src="/js/indivpost.js"></script>
