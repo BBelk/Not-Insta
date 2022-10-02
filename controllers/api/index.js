@@ -26,16 +26,19 @@ router.post('/upload', upload, async (req, res) => {
   }
   // Create object using data from the file and result object from Cloudinary
   const data = {
-    name: file.originalname,
-    description: '',
-    url: result.secure_url
+    // name: file.originalname,
+    // description: '',
+    image_filename: result.secure_url,
+    // body_text: result.secure_url,
+    body_text: 'idk lol',
+    user_id: req.session.user_id,
   };
 
   console.log('CLOUDINARY', result);
   console.log('FILE', file);
 
   // Create the Gallery item
-  const item = await db.Gallery.create(data);
+  const item = await db.Post.create(data);
   // Ensure it exists before return the result otherise send a 404
   if (item) {
     return res.json(item);
