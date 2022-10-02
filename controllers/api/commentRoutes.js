@@ -45,11 +45,12 @@ router.post('/', auth, async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   try {
-   const commentData = await Comment.update(req.body, {
+    
+    console.log("GOT HERE: " + req.body.new_c_body_text + " " + req.body.id + " " + req.params.id);
+   const commentData = await Comment.update({body_text: req.body.new_c_body_text},{
      where: {
        id: req.params.id
-     }
-   });
+     }});
    res.status(200).json(commentData);
  } catch (err){
    res.status(500).json(err);
