@@ -21,6 +21,7 @@ const db = require('../../models');
 router.post('/upload/:newCaption', upload, async (req, res) => {
   const { file } = req;
   const caption = req.params.newCaption;
+  console.log('FILE', file);
   // Captures the file data from the upload process and sends it to Cloudinary
   const result = await uploadToCloudinary(file.path, { folder: 'notinsta' });
   // When the upload is complete, delete it from the /tmp directory
