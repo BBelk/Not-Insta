@@ -1,19 +1,22 @@
-<section class="painting">
-  <img src="{{post.image_filename}}" alt="{{post.body_text}}">
-  <div class="painting-details">
+<section class="container-fluid d-flex justify-content-center">
+  <section class="p-0 card" style="width: 50rem;">
+    <img src="{{post.image_filename}}" class="card-img-top" alt="{{post.body_text}}">
+  <div class="card-body">
+    <a href="/user/{{post.user.id}}">
+      <h3 class="card-title">Username:{{post.user.username}}</h3>
+    </a>
+    <div class="card-text">
+      <p>Likes: {{post.likes}}</p>
+      <p>Post Text: {{post.body_text}}</p>
+    </div>
     {{!-- this compares the logged in user to the post user --}}
     {{!-- full list of comparers is here: https://gist.github.com/doginthehat/1890659/2a3c5a269fb2282cc9ce7526bb99f93d5559ac65 --}}
     {{#compare session.user_id post.user.id operator="=="}}
     <h5>Edit post</h5>
-    <button id="delete-post" class="btn-no-style" data-id="{{post.id}}">Delete</button>
+    <button id="delete-post" class="btn btn-danger" type="button" data-id="{{post.id}}">Delete</button>
 
     {{/compare}}
     
-    <a href="/user/{{post.user.id}}">
-      <h3>Username:{{post.user.username}}</h3>
-    </a>
-    <p>Likes: {{post.likes}}</p>
-    <p>Post Text: {{post.body_text}}</p>
 
     {{#each post.comments}} 
     {{#> comment-details this parent=../this}}

@@ -1,11 +1,11 @@
-<section class="card">
+<section class="p-0 m-1 card col-lg-3" style="width: 18rem;">
+  <img src="{{image_filename}}" class="card-img-top" alt="{{url}}">
+  <div class="card-body">
     <a href="/user/{{user.id}}">
-      <header>{{user.username}}</header>
+      <h1 class="card-title">{{post.user.username}}</header>
     </a>
-  <a href="/post/{{id}}">
-    <div class="card-body">
-      <img src="{{image_filename}}" alt="{{url}}">
-      <p>{{body_text}}</p>
-    </div>
-  </a>
+    <a href="/post/{{id}}">
+      <p class="card-text">{{body_text}}</p>
+    </a>
+  </div>
 </section>

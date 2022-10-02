@@ -5,39 +5,91 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Not Insta</title>
   <link rel="stylesheet" type="text/css" href="/css/jass.css">
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  {{!-- <link rel="stylesheet" type="text/css" href="/css/style.css"> --}}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
 </head>
 
 <body>
-  <header>
-    <h1>Not Insta</h1>
-  </header>
-  <nav>
-    <a href="/">Home</a>
-    {{#if loggedIn}}
-    <a href="/profile">Your Profile</a>
-    <a href="/upload">New Post</a>
-    <button id="logout" class="btn-no-style">Logout</button>
-    {{else}}
-    <a href="/login">Login</a>
-    {{/if}}
-  
-  </nav>
-  <main>
-    <aside>
-      <h2>Write something here</h2>
-      {{#each ships}}
-      {{> user-details}}
-      {{follower_id}}
-      {{/each}}
-    </aside>
-    <div class="wall">
-      {{{body}}}
+  <nav class="mb-4 navbar navbar-expand-lg bg-light">
+    <div class="container-fluid justify-content-lg-around justify-content-sm-between">
+      <a class="fs-1 navbar-brand" href="/">Slo-gram</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-labels="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse flex-grow-0" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          {{#if loggedIn}}
+          <li class="nav-item">
+            <a class="nav-link" href="/profile">Your Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/upload">New Post</a>
+          </li>
+          <li class="nav-item">
+            <button id="logout" class="btn btn-outline-danger" type="button">Logout</button>
+          </li>
+          {{!-- The dropdown regrettably did not work so I had to scrap it for now --}}
+          {{!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              All you baby!
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/profile">Your Profile</a></li>
+              <li><a class="dropdown-item" href="/upload">New Post</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item"><button id="logout" class="btn-no-style">Logout</button></a></li>
+            </ul>
+          </li> --}}
+          {{else}}
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+          {{/if}}
+        </ul>
+      </div>
     </div>
+  </nav>
+  {{!-- <nav class="navbar">
+    <section class="mb-3 container-fluid d-flex justify-content-around">
+      <a class="navbar-brand" href="/">Not Insta</a>
+      <section class="d-flex justify-content-end">
+          <a href="/">Home</a>
+          {{#if loggedIn}}
+          <a href="/profile">Your Profile</a>
+          <a href="/upload">New Post</a>
+          <button id="logout" class="btn-no-style">Logout</button>
+          {{else}}
+          <a href="/login">Login</a>
+          {{/if}}
+      </section>
+    </section>
+  </nav> --}}
+  <main>
+    <section class="mx-auto container-fluid row">
+      <section class="p-4 card col-lg-2">
+        <div class="card-body">
+          <h3 class="mb-5 card-title">People you follow</h2>
+          {{#each ships}}
+          {{> user-details}}
+          {{!-- {{follower_id}} --}}
+          {{/each}}
+        </div>
+      </section>
+      <section class="col-lg-10">
+        <div class="wall">
+          {{{body}}}
+        </div>
+      </section>
+    </section>
   </main>
   {{#if loggedIn}}
   <script src="/js/logout.js"></script>
   {{/if}}
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 </html>
