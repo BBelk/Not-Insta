@@ -3,6 +3,10 @@ const captionEl = document.querySelector('#body-post');
 
 imageUploadEl.addEventListener('change', async (event) => {
   const newCaption = captionEl.value;
+  if(newCaption === ""){
+    alert("Please input a caption");
+    return;
+  }
   const file = event.target.files[0];
   if(file.size > 10000000){
     alert("File too large, limit 10mb");

@@ -4,12 +4,19 @@
     <div class="container profile mt-5">
       <div class="row justify-content-center">
         <div class="col-6 d-flex justify-content-space-between">
-          <img src="./images/IMG_4070.jpg" class="img-thumbnail rounded-circle " style="width:30%"
-            alt="profile pic placeholder">
+          
+          <img src="{{user.profile_image_filename}}" class="img-thumbnail rounded-circle " style="width:30%"
+            alt="profile pic placeholder"
+            id="uploadClicker">
+            <div class="form-group">
+            {{#compare session.user_id user.id operator="=="}}
+            <input type="file" id="toUploadImage" accept="image/*" name="image" />
+            </div>
+            {{/compare}}
+            
 
           <div class="col-8 ml-5">
             <h1 class="user-name">{{user.username}}</h1>
-            {{!-- <h4>Username</h4> --}}
             <div class="d-flex justify-content-between mt-4 mb-5">
               <p>520 posts</p>
               <p>755 followers</p>
@@ -38,6 +45,10 @@
         {{/each}}
       </section>
   </section>
-  <div id="pageId">{{pageId}}</div>
+  <div id="pageId" style="display:none">{{pageId}}</div>
+
+  <div id="userIdStorage" style="display:none">{{user.id}}</div>
+
   <script src="/js/follow.js"></script>
+  <script src="/js/profile.js"></script>
           {{!-- <span class="btn-label"><i class="fa fa-user-minus"></i></span> --}}
