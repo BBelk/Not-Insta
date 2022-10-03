@@ -102,7 +102,7 @@ router.get('/get/:id', async (req, res) => {
   }
 });
 
-router.get("/user/:id", async (req, res) => {
+router.get("/user/:id", auth, async (req, res) => {
   const pageId = req.params.id;
   try {
     const userData = await User.findByPk(req.params.id, {
