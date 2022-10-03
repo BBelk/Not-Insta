@@ -22,6 +22,21 @@ const AddComment = async (event) => {
   }
 };
 
-document
-  .querySelector(".new-comment-form")
-  .addEventListener("submit", AddComment);
+document.querySelector(".new-comment-form").addEventListener("submit", AddComment);
+
+
+
+const editArea = document.getElementById("addingComment");
+const normalArea = document.getElementById("justTheButton");
+editArea.style.display = "none";
+
+const WritingComment = async (event) => {
+  normalArea.style.display = "none";
+  editArea.style.display = "block";;
+};
+
+var startWritingButton = document.querySelector("#start-writing-comment");
+
+if (startWritingButton) {
+  startWritingButton.addEventListener("click", WritingComment);
+}
