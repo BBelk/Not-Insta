@@ -9,6 +9,9 @@ router.get("/", async (req, res) => {
         model: User,
       },
     ],
+    order: [
+      ['time_created', 'DESC']
+    ]
   });
   let ships;
   if (req.session.user_id) {
@@ -39,6 +42,7 @@ router.get("/profile", auth, async (req, res) => {
           model: Post,
         },
       ],
+      order: [[Post, 'time_created', 'DESC']]
     });
     if (!userData) {
       res.status(404).json({ message: "No user found with this ID!" });
