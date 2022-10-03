@@ -15,19 +15,25 @@ router.get("/", async (req, res) => {
       ['time_created', 'DESC']
     ]
   });
-  let user;
+  let rootUser;
   if (req.session.user_id) {
-    const userData = await User.findByPk(req.session.user_id, {
+    // const userData = await User.findByPk(req.session.user_id, {
+    //   include: [{
+    //     model: Follower,
+    //     as: 'followers'
+    //   }]
+    // });
+    const followerData = await Follower.findByPk(req.session.user_id, {
       include: [{
-        model: Follower,
-        as: 'followers'
+        model: User,
+        as: 'followees'
       }]
     });
-
-    user = serialize(userData);
+    rootUser = serialize(followerData);
+    //rootUser = serialize(userData);
   }
   const posts = postData.map((post) => post.get());
-  res.render("homepage", { posts, user, loggedIn: req.session.loggedIn });
+  res.render("homepage", { posts, rootUser, loggedIn: req.session.loggedIn });
 });
 
 router.get("/upload", auth, async (req, res) => {
@@ -57,8 +63,17 @@ router.get("/profile", auth, async (req, res) => {
     if(req.session.user_id == user.id){
       isUser = true;
     }
+    let rootUser;
+    const followerData = await Follower.findByPk(req.session.user_id, {
+      include: [{
+        model: User,
+        as: 'followees'
+      }]
+    });
+    rootUser = serialize(followerData);
     res.render("profile", { 
       user,
+      rootUser,
       isUser, 
       loggedIn: req.session.loggedIn });
   } catch (err) {
@@ -108,6 +123,7 @@ router.get("/user/:id", async (req, res) => {
     const user = userData.get({ plain: true });
     let isUser = false;
     let hasRelationship = false;
+    let rootUser;
     if (req.session.user_id) {
       if(req.session.user_id == req.params.id){
         res.redirect("/profile");
@@ -119,11 +135,19 @@ router.get("/user/:id", async (req, res) => {
       if(user.followers.find((follower) => follower.id === req.session.user_id)){
         hasRelationship = true;
       }
+      const followerData = await Follower.findByPk(req.session.user_id, {
+        include: [{
+          model: User,
+          as: 'followees'
+        }]
+      });
+      rootUser = serialize(followerData);
     }
     console.log("_______________", user.followers);
     console.log("_______________", hasRelationship);
     res.render("profile", {
       user,
+      rootUser,
       hasRelationship,
       isUser,
       pageId,
@@ -165,12 +189,20 @@ router.get("/post/:id", async (req, res) => {
     const post = postData.get({ plain: true });
     // console.log(post, "---------------================---------------");
     let isUser = false;
+    let rootUser;
     if(req.session.user_id === post.user.id){
       isUser = true;
     }
-    
+    const followerData = await Follower.findByPk(req.session.user_id, {
+      include: [{
+        model: User,
+        as: 'followees'
+      }]
+    });
+    rootUser = serialize(followerData);
     res.render("indivpost", { 
       post,
+      rootUser,
       isUser,
       loggedIn: req.session.loggedIn });
   } catch (err) {

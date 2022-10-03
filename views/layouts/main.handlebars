@@ -78,7 +78,7 @@
       <section class="p-4 card col-lg-2">
         <div class="card-body">
           <h3 class="mb-5 card-title">People you follow</h3>
-          {{#each user.followers}}
+          {{#each rootUser.followees}}
           {{> user-details}}
           {{!-- {{follower_id}} --}}
           {{/each}}
