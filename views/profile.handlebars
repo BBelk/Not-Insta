@@ -1,23 +1,23 @@
 {{!-- <section class="container"> --}}
 
   <section class="container mt-4">
-    <div class="container profile mt-5">
-      <div class="row justify-content-center">
-        <div class="col-6 d-flex justify-content-space-between">
-          
-          <img src="{{user.profile_image_filename}}" class="img-thumbnail rounded-circle " style="width:30%"
-            alt="profile pic placeholder"
-            id="uploadClicker">
-            <div class="form-group">
+    <div class="card border-0">
+      <div class="row justify-content-center mt-5">
+
+        <div class="col-4 d-flex justify-content-end">
+
+          <img src="{{user.profile_image_filename}}" class="img-thumbnail rounded-circle mr-5 mb-3" style="width:10rem; height:10rem;"
+            alt="profile pic placeholder" id="uploadClicker">
+          <div class="form-group">
             {{#compare session.user_id user.id operator="=="}}
             <input type="file" id="toUploadImage" accept="image/*" name="image" />
-            </div>
-            {{/compare}}
-            
+          </div>
+          {{/compare}}
 
-          <div class="col-8 ml-5">
-            <h1 class="user-name">{{user.username}}</h1>
-            <div class="d-flex justify-content-between mt-4 mb-5">
+
+          <div class="col-4 mr-5">
+            <h4 class="user-name">{{user.username}}</h4>
+            <div class="d-flex gap-3 mt-4">
               <p>520 posts</p>
               <p>755 followers</p>
               <p>270 following</p>
@@ -30,11 +30,11 @@
         {{#unless isUser}}
         <buttton id="follow-btn" type="button" class="btn btn-outline-info btn-md bg-none">
           <span class="btn-label">
-          {{#if hasRelationship}}
-          <i class="fa fa-minus"></i> UNFOLLOW
-          {{else}}
-          <i class="fa fa-plus"></i> FOLLOW
-          {{/if}}
+            {{#if hasRelationship}}
+            <i class="fa fa-minus"></i> UNFOLLOW
+            {{else}}
+            <i class="fa fa-plus"></i> FOLLOW
+            {{/if}}
           </span>
         </buttton>
         {{/unless}}
@@ -51,4 +51,4 @@
 
   <script src="/js/follow.js"></script>
   <script src="/js/profile.js"></script>
-          {{!-- <span class="btn-label"><i class="fa fa-user-minus"></i></span> --}}
+  {{!-- <span class="btn-label"><i class="fa fa-user-minus"></i></span> --}}
