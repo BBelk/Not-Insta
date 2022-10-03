@@ -2,6 +2,8 @@ const router = require("express").Router();
 const { User, Post, Comment, Relationship, Follower } = require("../models");
 const auth = require("../utils/auth");
 
+const serialize = (data) => JSON.parse(JSON.stringify(data));
+
 router.get("/", async (req, res) => {
   const postData = await Post.findAll({
     include: [
@@ -13,17 +15,19 @@ router.get("/", async (req, res) => {
       ['time_created', 'DESC']
     ]
   });
-  let ships;
+  let user;
   if (req.session.user_id) {
-    const relationshipData = await Relationship.findAll({
-      where: {
-        follower_id: req.session.user_id,
-      },
+    const userData = await User.findByPk(req.session.user_id, {
+      include: [{
+        model: Follower,
+        as: 'followers'
+      }]
     });
-    ships = relationshipData.map((relationship) => relationship.get());
+
+    user = serialize(userData);
   }
   const posts = postData.map((post) => post.get());
-  res.render("homepage", { posts, ships, loggedIn: req.session.loggedIn });
+  res.render("homepage", { posts, user, loggedIn: req.session.loggedIn });
 });
 
 router.get("/upload", auth, async (req, res) => {
@@ -61,8 +65,6 @@ router.get("/profile", auth, async (req, res) => {
     res.json(err);
   }
 });
-
-const serialize = (data) => JSON.parse(JSON.stringify(data));
 
 router.get('/get/:id', async (req, res) => {
   //testing comment
