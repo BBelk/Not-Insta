@@ -21,7 +21,8 @@
 
       <section class="container">
         {{#unless isUser}}
-        <buttton id="follow-btn" class="btn-no-style">
+        <buttton id="follow-btn" class="btn-no-style btn-outline-info btn-md bg-none">
+          <span class="btn-label"><i class="fa fa-user-plus"></i></span>
           {{#if hasRelationship}}
           UNFOLLOW
           {{else}}
@@ -38,3 +39,4 @@
   </section>
   <div id="pageId">{{pageId}}</div>
   <script src="/js/follow.js"></script>
+          {{!-- <span class="btn-label"><i class="fa fa-user-minus"></i></span> --}}
