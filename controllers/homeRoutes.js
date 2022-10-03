@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
   if (req.session.user_id) {
     const relationshipData = await Relationship.findAll({
       where: {
-        followee_id: req.session.user_id,
+        follower_id: req.session.user_id,
       },
     });
     ships = relationshipData.map((relationship) => relationship.get());

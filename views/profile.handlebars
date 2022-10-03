@@ -21,13 +21,14 @@
 
       <section class="container">
         {{#unless isUser}}
-        <buttton id="follow-btn" class="btn-no-style btn-outline-info btn-md bg-none">
-          <span class="btn-label"><i class="fa fa-user-plus"></i></span>
+        <buttton id="follow-btn" type="button" class="btn btn-outline-info btn-md bg-none">
+          <span class="btn-label">
           {{#if hasRelationship}}
-          UNFOLLOW
+          <i class="fa fa-minus"></i> UNFOLLOW
           {{else}}
-          FOLLOW
+          <i class="fa fa-plus"></i> FOLLOW
           {{/if}}
+          </span>
         </buttton>
         {{/unless}}
       </section>
