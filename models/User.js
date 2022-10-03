@@ -37,7 +37,8 @@ User.init(
     },
     profile_image_filename: {
       type: DataTypes.STRING,
-      allowNull: true,
+      // allowNull: true,
+      defaultValue: "https://pbs.twimg.com/profile_images/1237550450/mstom_400x400.jpg",
     },
   //   
     
