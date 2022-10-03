@@ -1,15 +1,19 @@
-    <p>------------------------------------------------</p>
+  <div id="addingComment" style="display:none">    
     <form class="form new-comment-form" data-id="{{post.id}}">
       <div class="form-group">
         <label for="body-post">New Comment:</label>
         <input class="form-input" type="text" id="comment-input" />
       </div>
       <div class="form-group">
-      <button id="add-comment" class="btn btn-primary" type="submit" >Add Comment</button>
+      <button id="add-comment" class="btn btn-primary" type="submit" >Post Comment</button>
       </div>
     </form>
+  </div>
 
-    <p>------------------------------------------------</p>
+  <div id="justTheButton">
+    <button id="start-writing-comment" class="btn btn-primary" type="submit" >Add A Comment</button>
+  </div>
+
     {{!-- {{#compare session.user_id post.user.id operator="!="}} --}}
     <script src="/js/addComment.js"></script>
     {{!-- {{/compare}} --}}

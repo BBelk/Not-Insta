@@ -9,22 +9,26 @@
     <button id="edit-post" class="btn btn-warning" type="button" data-id="{{post.id}}">Edit</button>
     <button id="delete-post" class="btn btn-danger" type="button" data-id="{{post.id}}">Delete</button>
     {{/compare}}
+
     <a href="/user/{{post.user.id}}">
-      <h3 class="card-title">Username:{{post.user.username}}</h3>
+      <h3 class="card-title"><img src="{{post.user.profile_image_filename}}" class="img-thumbnail rounded-circle " style="width:5%"
+            alt="profile pic placeholder">{{post.user.username}}</h3>
     </a>
     <div class="card-text">
       <p>Likes: {{post.likes}}</p>
       <p>Post Text: <div id="actualPost">{{post.body_text}}</div></p>
     </div>
     </div>
-    <div id="editingPost">
     {{#compare session.user_id post.user.id operator="=="}}
-         <button id="finish-post" class="btn btn-primary" type="button" data-id="{{post.id}}" post-id="{{post.id}}">Finish Editing Post</button>
-        <form class="form upload-form">
+    <div id="editingPost" style="display:none">
+        <form class="form edit-post-form" data-id="{{post.id}}">
       <div class="form-group">
         <label for="body-post">Edited Post:</label>
         <input class="form-input" type="text" id="post-input" />
       </div>
+         <div class="form-group">
+         <button id="finish-post" class="btn btn-primary" type="submit"  post-id="{{post.id}}">Finish Editing Post</button>
+         </div>
     </form>
 
     {{/compare}}

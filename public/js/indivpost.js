@@ -40,13 +40,14 @@ dl.forEach(function (newDl) {
 
 ///
 
-const editArea = document.getElementById("editingPost");
-const normalArea = document.getElementById("normalPost");
-editArea.style.display = "none";
+const editAreaP = document.getElementById("editingPost");
+const normalAreaP = document.getElementById("normalPost");
+editAreaP.style.display = "none";
 
 const EditPost = async (event) => {
-  normalArea.style.display = "none";
-  editArea.style.display = "block";
+  event.preventDefault();
+  normalAreaP.style.display = "none";
+  editAreaP.style.display = "block";
   document.querySelector("#post-input").value =
     document.querySelector("#actualPost").innerHTML;
   // document.getElementById("nameofid").value = "My value";
@@ -58,6 +59,7 @@ if (editButton) {
 }
 
 const ActuallyEditPost = async (event) => {
+  event.preventDefault();
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
     // const postId = event.target.getAttribute('post-id');
@@ -73,8 +75,8 @@ const ActuallyEditPost = async (event) => {
 
     if (response.ok) {
       // document.location.replace(`/post/${postId}`);
-      normalArea.style.display = "block";
-      editArea.style.display = "none";
+      normalAreaP.style.display = "block";
+      editAreaP.style.display = "none";
       document.querySelector("#actualPost").innerHTML =
         document.querySelector("#post-input").value;
     } else {
@@ -83,7 +85,9 @@ const ActuallyEditPost = async (event) => {
   }
 };
 
-var finishButton = document.querySelector("#finish-post");
-if (finishButton) {
-  finishButton.addEventListener("click", ActuallyEditPost);
-}
+document.querySelector(".edit-post-form").addEventListener("submit", ActuallyEditPost);
+document.querySelector(".new-comment-form").addEventListener("submit", AddComment);
+// if (finishButton) {
+//   finishButton.addEventListener("click", ActuallyEditPost);
+// }
+// document.querySelector(".new-comment-form").addEventListener("submit", AddComment);
