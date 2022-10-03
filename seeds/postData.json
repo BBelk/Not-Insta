@@ -1,31 +1,31 @@
 [
   {
-    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/v1664372542/samples/landscapes/nature-mountains.jpg",
+    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1664372542/samples/landscapes/nature-mountains.jpg",
     "body_text": "Mount Everest is a mountain. Some say its the biggest but I dont know.",
     "user_id": 1
   },
   {
-    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/v1664372538/samples/landscapes/beach-boat.jpg",
+    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1664372538/samples/landscapes/beach-boat.jpg",
     "body_text": "Pilot mountain exists. You can drive and see it. I promise.",
     "user_id": 1
   },
   {
-    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/v1664372537/samples/landscapes/architecture-signs.jpg",
+    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1664372537/samples/landscapes/architecture-signs.jpg",
     "body_text": "Hanging Rock, it's all just rocks. Great stuff.",
     "user_id": 2
   },
   {
-    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/v1664372534/samples/landscapes/girl-urban-view.jpg",
+    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1664372534/samples/landscapes/girl-urban-view.jpg",
     "body_text": "Denali is in Alaska. It had another name but I forgot it.",
     "user_id": 3
   },
   {
-    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/v1664372533/samples/sheep.jpg",
+    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1664372533/samples/sheep.jpg",
     "body_text": "Mount Whitney. Looks more like a Jennifer.",
     "user_id": 4
   },
   {
-    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/v1664372535/samples/bike.jpg",
+    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1664372535/samples/bike.jpg",
     "body_text": "Mount Shasta, I think its a volcano too? Idk",
     "user_id": 5
   }
