@@ -10,7 +10,8 @@
     {{/compare}}
 
     <a href="/user/{{commentUser.id}}">
-    Comment Author User: {{commentUser.username}}
+    <img src="{{commentUser.profile_image_filename}}" class="img-thumbnail rounded-circle " style="width:5%"
+            alt="profile pic placeholder">{{commentUser.username}}
     </a>
     <p>Comment Text:<div id="actualComment">{{body_text}}</div></p>
     </div>

@@ -32,7 +32,8 @@ editArea.style.display = "none";
 
 const WritingComment = async (event) => {
   normalArea.style.display = "none";
-  editArea.style.display = "block";;
+  editArea.style.display = "block";
+  window.scrollTo(0, document.body.scrollHeight);
 };
 
 var startWritingButton = document.querySelector("#start-writing-comment");
