@@ -1,20 +1,37 @@
 <section class="container-fluid d-flex justify-content-center">
   <section class="p-0 card" style="width: 50rem;">
+    
+    
     <img src="{{post.image_filename}}" class="card-img-top" alt="{{post.body_text}}">
   <div class="card-body">
+    <div id="normalPost">
+    {{#compare session.user_id post.user.id operator="=="}}
+    <button id="edit-post" class="btn btn-warning" type="button" data-id="{{post.id}}">Edit</button>
+    <button id="delete-post" class="btn btn-danger" type="button" data-id="{{post.id}}">Delete</button>
+    {{/compare}}
     <a href="/user/{{post.user.id}}">
       <h3 class="card-title">Username:{{post.user.username}}</h3>
     </a>
     <div class="card-text">
       <p>Likes: {{post.likes}}</p>
-      <p>Post Text: {{post.body_text}}</p>
+      <p>Post Text: <div id="actualPost">{{post.body_text}}</div></p>
     </div>
+    </div>
+    {{#compare session.user_id post.user.id operator="=="}}
+    <div id="editingPost">
+         <button id="finish-post" class="btn btn-primary" type="button" data-id="{{post.id}}" post-id="{{post.id}}">Finish Editing Post</button>
+        <form class="form upload-form">
+      <div class="form-group">
+        <label for="body-post">Edited Post:</label>
+        <input class="form-input" type="text" id="post-input" />
+      </div>
+    </form>
+
+    </div>
+    {{/compare}}
+
     {{!-- this compares the logged in user to the post user --}}
     {{!-- full list of comparers is here: https://gist.github.com/doginthehat/1890659/2a3c5a269fb2282cc9ce7526bb99f93d5559ac65 --}}
-    {{#compare session.user_id post.user.id operator="=="}}
-    <h5>Edit post</h5>
-    <button id="delete-post" class="btn btn-danger" type="button" data-id="{{post.id}}">Delete</button>
-    {{/compare}}
     
 
     {{#each post.comments}} 
@@ -27,6 +44,7 @@
     {{> comment-new}}
     {{!-- TODO add comment --}}
   </div>
+</section>
 </section>
 <script src="/js/indivpost.js"></script>
 

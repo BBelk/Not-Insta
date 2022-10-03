@@ -37,7 +37,8 @@ router.get("/", async (req, res) => {
 // create post
 router.put("/:id", async (req, res) => {
   try {
-    const postData = await Post.update(req.body, {
+    console.log("GOT HERE: " + req.body.new_body_text + " " + req.params.id);
+    const postData = await Post.update({body_text: req.body.new_body_text}, {
       where: {
         id: req.params.id,
       },
