@@ -1,12 +1,14 @@
     <p>------------------------------------------------</p>
-    <form class="form upload-form">
+    <form class="form new-comment-form" data-id="{{post.id}}">
       <div class="form-group">
         <label for="body-post">New Comment:</label>
         <input class="form-input" type="text" id="comment-input" />
       </div>
+      <div class="form-group">
+      <button id="add-comment" class="btn btn-primary" type="submit" >Add Comment</button>
+      </div>
     </form>
 
-    <button id="add-comment" class="btn btn-primary" type="button" data-id="{{post.id}}">Add Comment</button>
     <p>------------------------------------------------</p>
     {{!-- {{#compare session.user_id post.user.id operator="!="}} --}}
     <script src="/js/addComment.js"></script>

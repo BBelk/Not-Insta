@@ -17,8 +17,8 @@
       <p>Post Text: <div id="actualPost">{{post.body_text}}</div></p>
     </div>
     </div>
-    {{#compare session.user_id post.user.id operator="=="}}
     <div id="editingPost">
+    {{#compare session.user_id post.user.id operator="=="}}
          <button id="finish-post" class="btn btn-primary" type="button" data-id="{{post.id}}" post-id="{{post.id}}">Finish Editing Post</button>
         <form class="form upload-form">
       <div class="form-group">
@@ -27,8 +27,8 @@
       </div>
     </form>
 
-    </div>
     {{/compare}}
+    </div>
 
     {{!-- this compares the logged in user to the post user --}}
     {{!-- full list of comparers is here: https://gist.github.com/doginthehat/1890659/2a3c5a269fb2282cc9ce7526bb99f93d5559ac65 --}}
