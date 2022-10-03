@@ -1,22 +1,40 @@
+{{!-- <section class="container"> --}}
 
-<section class="container">
-  <h1 class="user-name">{{user.username}}</h1>
-  <section class="container">
-    {{#unless isUser}}
-    <buttton id="follow-btn"class="btn-no-style">
-      {{#if hasRelationship}}
-      UNFOLLOW
-      {{else}}
-      FOLLOW
-      {{/if}}
-    </buttton>
-    {{/unless}}
+  <section class="container mt-4">
+    <div class="container profile mt-5">
+      <div class="row justify-content-center">
+        <div class="col-6 d-flex justify-content-space-between">
+          <img src="./images/IMG_4070.jpg" class="img-thumbnail rounded-circle " style="width:30%"
+            alt="profile pic placeholder">
+
+          <div class="col-8 ml-5">
+            <h1 class="user-name">{{user.username}}</h1>
+            {{!-- <h4>Username</h4> --}}
+            <div class="d-flex justify-content-between mt-4 mb-5">
+              <p>520 posts</p>
+              <p>755 followers</p>
+              <p>270 following</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="container">
+        {{#unless isUser}}
+        <buttton id="follow-btn" class="btn-no-style">
+          {{#if hasRelationship}}
+          UNFOLLOW
+          {{else}}
+          FOLLOW
+          {{/if}}
+        </buttton>
+        {{/unless}}
+      </section>
+      <section class="flex-row justify-center">
+        {{#each user.posts}}
+        {{> indivpost-details}}
+        {{/each}}
+      </section>
   </section>
-  <section class="flex-row justify-center">
-    {{#each user.posts}}
-    {{> indivpost-details}}
-    {{/each}}
-  </section>
-</section> 
-<div id="pageId">{{pageId}}</div>
-<script src="/js/follow.js"></script>
+  <div id="pageId">{{pageId}}</div>
+  <script src="/js/follow.js"></script>
