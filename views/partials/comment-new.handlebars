@@ -8,7 +8,7 @@
 
     <button id="add-comment" class="btn btn-primary" type="button" data-id="{{post.id}}">Add Comment</button>
     <p>------------------------------------------------</p>
-    {{#compare session.user_id post.user.id operator="=="}}
+    {{!-- {{#compare session.user_id post.user.id operator="!="}} --}}
     <script src="/js/addComment.js"></script>
-    {{/compare}}
+    {{!-- {{/compare}} --}}
     

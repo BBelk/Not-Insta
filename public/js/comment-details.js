@@ -13,47 +13,48 @@ const DeleteComment = async (event) =>{
     }
   }
 };
-document.querySelector('#delete-comment').addEventListener('click', DeleteComment);
+var dl = document.querySelector('#delete-comment');
+if(dl){
+dl.addEventListener('click', DeleteComment);
+}
 
 ///
-// body_text: req.body.new_c_body_text,
-//       user_id: req.session.user_id,
-//       post_id: req.body.id
-const editArea = document.getElementById('editingComment');
-const normalArea = document.getElementById('normalComment');
-editArea.style.display = 'none';
 
-const EditComment = async (event) =>{
-  normalArea.style.display = 'none';
-  editArea.style.display = 'block';
-  document.querySelector('#comment-input').value = document.querySelector('#actualComment').innerHTML;
-  // document.getElementById("nameofid").value = "My value";
-};
+// const editArea = document.getElementById('editingComment');
+// const normalArea = document.getElementById('normalComment');
+// editArea.style.display = 'none';
 
-document.querySelector('#edit-comment').addEventListener('click', EditComment);
+// const EditComment = async (event) =>{
+//   normalArea.style.display = 'none';
+//   editArea.style.display = 'block';
+//   document.querySelector('#comment-input').value = document.querySelector('#actualComment').innerHTML;
+//   // document.getElementById("nameofid").value = "My value";
+// };
 
-const ActuallyEditComment = async (event) =>{
-if (event.target.hasAttribute('data-id')) {
-  const id = event.target.getAttribute('data-id');
-  const postId = event.target.getAttribute('post-id');
-  const new_c_body_text = document.querySelector('#comment-input').value;
-  const response = await fetch(`/api/comment/${id}`, {
-    method: 'PUT',
-    body: JSON.stringify({ new_c_body_text, id }),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
+// document.querySelector('#edit-comment').addEventListener('click', EditComment);
 
-  if (response.ok) {
-    // document.location.replace(`/post/${postId}`);
-      normalArea.style.display = 'block';
-      editArea.style.display = 'none';
-      document.querySelector('#actualComment').innerHTML = document.querySelector('#comment-input').value;
-  } else {
-    alert('Failed to edit comment');
-  }
-}
-};
+// const ActuallyEditComment = async (event) =>{
+// if (event.target.hasAttribute('data-id')) {
+//   const id = event.target.getAttribute('data-id');
+//   const postId = event.target.getAttribute('post-id');
+//   const new_c_body_text = document.querySelector('#comment-input').value;
+//   const response = await fetch(`/api/comment/${id}`, {
+//     method: 'PUT',
+//     body: JSON.stringify({ new_c_body_text, id }),
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//   });
 
-document.querySelector('#finish-comment').addEventListener('click', ActuallyEditComment);
+//   if (response.ok) {
+//     // document.location.replace(`/post/${postId}`);
+//       normalArea.style.display = 'block';
+//       editArea.style.display = 'none';
+//       document.querySelector('#actualComment').innerHTML = document.querySelector('#comment-input').value;
+//   } else {
+//     alert('Failed to edit comment');
+//   }
+// }
+// };
+
+// document.querySelector('#finish-comment').addEventListener('click', ActuallyEditComment);
