@@ -2,18 +2,16 @@
     {{!-- this SHOULD compare the logged in user to the comment user --}}
     {{!-- full list of comparers is here: https://gist.github.com/doginthehat/1890659/2a3c5a269fb2282cc9ce7526bb99f93d5559ac65 --}}
     <div id="normalComment">
-    {{#compare parent.session.user_id this.commentUser.id operator="=="}}
-    <button id="delete-comment" class="btn btn-danger" type="button" data-id="{{id}}" post-id="{{parent.post.id}}">Delete Comment</button>
     
-    
-    {{!-- <script src="/js/comment-details.js"></script> --}}
-    {{/compare}}
 
     <a href="/user/{{commentUser.id}}">
     <img src="{{commentUser.profile_image_filename}}" class="img-thumbnail rounded-circle " style="width:5%"
             alt="profile pic placeholder">{{commentUser.username}}
     </a>
     <p>Comment Text:<div id="actualComment">{{body_text}}</div></p>
+    {{#compare parent.session.user_id this.commentUser.id operator="=="}}
+    <button id="delete-comment" class="btn btn-danger" type="button" data-id="{{id}}" post-id="{{parent.post.id}}">Delete Comment</button>
+    {{/compare}}
     </div>
 
     {{!-- {{#compare parent.session.user_id this.commentUser.id operator="=="}}

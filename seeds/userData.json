@@ -4,34 +4,34 @@
     "username": "Bruce Belk",
     "email": "bb@gmail.com",
     "password": "password12345",
-    "profile_image_filename": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_Retriever_Dukedestiny01_drvd.jpg"
+    "profile_image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto/v1664808498/notinsta/i3awild6cttuqp3mjf9p.jpg"
   },
   {
     "id": 2,
-    "username": "JR",
+    "username": "Jason Rettinger",
     "email": "jr@gmail.com",
     "password": "password12345",
-    "profile_image_filename": "https://upload.wikimedia.org/wikipedia/commons/2/26/Rottweiler_standing_facing_left.jpg"
+    "profile_image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto/v1664851493/notinsta/Florida_Panthers_2016_logo.svg_snmy9w.png"
   },
   {
     "id": 3,
-    "username": "LS",
+    "username": "Leigha Steele",
     "email": "ls@gmail.com",
     "password": "password12345",
-    "profile_image_filename": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Golden_Doodle_Standing_%28HD%29.jpg"
+    "profile_image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto/v1664819869/notinsta/rotsdlgirfxe8puz1916.jpg"
   },
   {
     "id": 4,
-    "username": "NS",
+    "username": "Nicolas Santander",
     "email": "ns@gmail.com",
     "password": "password12345",
-    "profile_image_filename": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Chihuahua1_bvdb.jpg"
+    "profile_image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto/v1664851693/notinsta/112618_StNicholas_Parade_2_illgs3.jpg"
   },
   {
     "id": 5,
-    "username": "SP",
+    "username": "Sasima Patterson",
     "email": "sp@gmail.com",
     "password": "password12345",
-    "profile_image_filename": "https://upload.wikimedia.org/wikipedia/commons/d/d0/German_Shepherd_-_DSC_0346_%2810096362833%29.jpg"
+    "profile_image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto/v1664851613/notinsta/FU5CtcDXsAINc9E_wvhaah.jpg"
   }
 ]
