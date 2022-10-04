@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --primary: #3d5852;
   --secondary: #86938f;
   --tertiary: #5e877f;
@@ -17,17 +17,17 @@ body {
   min-height: 100vh;
   justify-content: flex-start;
   background-color: var(--quatrinary);
-}
+} */
 
 a {
-  color: var(--dark);
+  color: black;
   text-decoration: none;
 }
 
 a:visited {
   color: inherit;
 }
-
+/* 
 header {
   padding: 40px;
   text-align: center;
@@ -105,7 +105,7 @@ img {
   font-weight: bold;
 }
 
-/* CARDS */
+
 .card {
   margin: 20px;
   flex: 0 1 300px;
@@ -155,10 +155,9 @@ img {
   padding-left: 100px;
 }
 
-/* LAYOUT */
 .container {
   display: flex;
   flex-flow: column wrap;
   align-content: flex-start;
   align-items: center;
-}
+} */

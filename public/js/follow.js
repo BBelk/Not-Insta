@@ -1,3 +1,5 @@
+const followBtn = document.querySelector('#follow-btn');
+
 const followButtonHandler = async (event) => {
   console.log(event.target);
 
@@ -18,9 +20,10 @@ const followButtonHandler = async (event) => {
   }
 };
 
-document
-  .querySelector('#follow-btn')
-  .addEventListener('click', followButtonHandler);
+if(followBtn) {
+  followBtn.addEventListener('click', followButtonHandler);
+}
+
 
 
 

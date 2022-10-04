@@ -38,7 +38,24 @@ router.get("/", async (req, res) => {
 
 router.get("/upload", auth, async (req, res) => {
   try {
-    res.render("upload", {loggedIn: req.session.loggedIn});
+    let rootUser;
+    if (req.session.user_id) {
+      // const userData = await User.findByPk(req.session.user_id, {
+      //   include: [{
+      //     model: Follower,
+      //     as: 'followers'
+      //   }]
+      // });
+      const followerData = await Follower.findByPk(req.session.user_id, {
+        include: [{
+          model: User,
+          as: 'followees'
+        }]
+      });
+      rootUser = serialize(followerData);
+      //rootUser = serialize(userData);
+    }
+    res.render("upload", {rootUser, loggedIn: req.session.loggedIn});
   } catch (err) {
     res.json(err);
   }
