@@ -7,19 +7,22 @@
     </a>
     <img src="{{post.image_filename}}" class="img" alt="{{post.body_text}}">
     <div class="card-body">
-      <div id="normalPost" class="container row">
-        <div class="col-lg-6">
-          {{#compare session.user_id post.user.id operator="=="}}
-          <button id="edit-post" class="btn btn-warning" type="button" data-id="{{post.id}}">Edit</button>
-          <button id="delete-post" class="btn btn-danger" type="button" data-id="{{post.id}}">Delete</button>
-          {{/compare}}
+      <div id="normalPost" class="container">
+        <div class="mb-3 card-text">
+          <h3>
+            <div id="actualPost">{{post.body_text}}</div>
+          </h3>
         </div>
-        <div class="col-lg-6 d-flex justify-content-end">
-          <p><i class="fa fa-heart"></i> {{post.likes}}</p>
-        </div>
-        <div class="card-text">
-          <p>Post Text: </p>
-          <div id="actualPost">{{post.body_text}}</div>
+        <div class="container-fluid row">
+          <div class="col-6">
+            <p><i class="fa fa-heart"></i> {{post.likes}}</p>
+          </div>
+          <div class="p-0 col-6 d-flex justify-content-end">
+            {{#compare session.user_id post.user.id operator="=="}}
+            <button id="edit-post" class="btn btn-warning" type="button" data-id="{{post.id}}">Edit</button>
+            <button id="delete-post" class="mx-2 btn btn-danger" type="button" data-id="{{post.id}}">Delete</button>
+            {{/compare}}
+          </div>
         </div>
       </div>
       {{#compare session.user_id post.user.id operator="=="}}
@@ -47,7 +50,9 @@
       {{/each}}
 
       {{!-- {{#compare }} --}}
+      {{#if loggedIn}}
       {{> comment-new}}
+      {{/if}}
       {{!-- TODO add comment --}}
     </div>
   </section>

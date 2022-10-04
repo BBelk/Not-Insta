@@ -78,10 +78,12 @@
       <section class="p-4 card col-lg-2">
         <div class="card-body">
           <h3 class="mb-5 card-title">People you follow</h3>
-          {{#each rootUser.followees}}
-          {{> user-details}}
-          {{!-- {{follower_id}} --}}
-          {{/each}}
+          <div class="container-fluid d-flex flex-sm-wrap flex-md-wrap">
+            {{#each rootUser.followees}}
+            {{> user-details}}
+            {{!-- {{follower_id}} --}}
+            {{/each}}
+          </div>
         </div>
       </section>
       {{/if}}
