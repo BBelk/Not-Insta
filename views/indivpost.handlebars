@@ -18,7 +18,8 @@
           <p><i class="fa fa-heart"></i> {{post.likes}}</p>
         </div>
         <div class="card-text">
-          <p>Post Text: <div id="actualPost">{{post.body_text}}</div></p>
+          <p>Post Text: </p>
+          <div id="actualPost">{{post.body_text}}</div>
         </div>
       </div>
       {{#compare session.user_id post.user.id operator="=="}}
