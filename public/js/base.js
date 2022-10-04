@@ -1,5 +1,10 @@
 const imageUploadEl = document.querySelector('#image');
 const captionEl = document.querySelector('#body-post');
+// still in progress
+// const uploadFormHandler = async (event) => {
+//   event.preventDefault();
+//   const 
+// }
 
 imageUploadEl.addEventListener('change', async (event) => {
   const newCaption = captionEl.value;
@@ -18,6 +23,7 @@ imageUploadEl.addEventListener('change', async (event) => {
   const item = await axios.post(`/api/upload/${newCaption}`, formData, config);
   if (item) {
     let newId = item.data.id;
+    // will need this in form submit
     window.location.replace(`/post/${newId}`);
   }
 });
