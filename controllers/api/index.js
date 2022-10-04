@@ -29,7 +29,7 @@ router.post('/upload/:newCaption', upload, async (req, res) => {
     unlinkSync(file.path);
   }
   // Create object using data from the file and result object from Cloudinary
-  result.secure_url = result.secure_url.replace(/upload/g, "upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai");
+  result.secure_url = result.secure_url.replace(/upload/g, "upload/w_1000,ar_1:1,c_fill,g_auto");
 
   const data = {
     // name: file.originalname,
@@ -63,7 +63,7 @@ router.post('/upload/p/:userId', upload, async (req, res) => {
   }
   // Create object using data from the file and result object from Cloudinary
 
-  result.secure_url = result.secure_url.replace(/upload/g, "upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai");
+  result.secure_url = result.secure_url.replace(/upload/g, "upload/w_1000,ar_1:1,c_fill,g_auto");
   
   const data = {
     // name: file.originalname,

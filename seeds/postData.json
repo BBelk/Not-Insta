@@ -1,32 +1,122 @@
 [
   {
-    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1664372542/samples/landscapes/nature-mountains.jpg",
-    "body_text": "Mount Everest is a mountain. Some say its the biggest but I dont know.",
+    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto/v1664372533/samples/food/pot-mussels.jpg",
+    "body_text": "I'm not gonna eat all this, you want some?",
     "user_id": 1
   },
   {
-    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1664372538/samples/landscapes/beach-boat.jpg",
-    "body_text": "Pilot mountain exists. You can drive and see it. I promise.",
+    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto/v1664372538/samples/people/bicycle.jpg",
+    "body_text": "Free bikes! Steal 'em while you can. See you suckers.",
     "user_id": 1
   },
   {
-    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1664372537/samples/landscapes/architecture-signs.jpg",
-    "body_text": "Hanging Rock, it's all just rocks. Great stuff.",
+    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto/v1664372542/samples/landscapes/nature-mountains.jpg",
+    "body_text": "Mountains are pretty cool. Unless they're volcanos. Then they're hot.",
+    "user_id": 1
+  },
+  {
+    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto/v1664372538/samples/landscapes/beach-boat.jpg",
+    "body_text": "Beaches aren't real. This is an AI generated image of what a beach *might* look like.",
+    "user_id": 1
+  },
+  {
+    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto/v1664372536/samples/animals/three-dogs.jpg",
+    "body_text": "These have seen the end of the world but won't tell us.",
+    "user_id": 1
+  },
+  {
+    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto/v1664372539/samples/ecommerce/leather-bag-gray.jpg",
+    "body_text": "Stole an amazon package and got a surprise. Today was a good day.",
+    "user_id": 1
+  },
+  {
+    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto/v1664372535/samples/ecommerce/shoes.png",
+    "body_text": "This has a transparent background so idk what will happen. Non euclidean photography is hard",
     "user_id": 2
   },
   {
-    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1664372534/samples/landscapes/girl-urban-view.jpg",
-    "body_text": "Denali is in Alaska. It had another name but I forgot it.",
+    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto/v1664372537/samples/landscapes/architecture-signs.jpg",
+    "body_text": "Broadway theater is overhyped. #TheMoreYouKnow",
+    "user_id": 2
+  },
+  {
+    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto/v1664372536/samples/people/jazz.jpg",
+    "body_text": "Saxophones were invented when Thomas Saxophone accidentally dropped his phone into a tub of sax. The rest is history.",
+    "user_id": 2
+  },
+  {
+    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto/v1664372532/samples/animals/reindeer.jpg",
+    "body_text": "This dumb deer got a tree branch stuck on his head.",
+    "user_id": 2
+  },
+  {
+    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto/v1664372534/samples/landscapes/girl-urban-view.jpg",
+    "body_text": "This giant little girl demolished a whole town. Don't let your town be next.",
     "user_id": 3
   },
   {
-    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1664372533/samples/sheep.jpg",
-    "body_text": "Mount Whitney. Looks more like a Jennifer.",
+    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto/v1664372534/samples/people/smiling-man.jpg",
+    "body_text": "WANTED: $100,000 reward. Male model on the loose, keep your family indoors.",
+    "user_id": 3
+  },
+  {
+    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto/v1664372530/samples/ecommerce/analog-classic.jpg",
+    "body_text": "For sale, one watch, sometimes worn.",
+    "user_id": 3
+  },
+  {
+    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto/v1664372539/samples/ecommerce/car-interior-design.jpg",
+    "body_text": "Finally got all the blood out!",
+    "user_id": 3
+  },
+  {
+    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto/v1664372532/samples/food/fish-vegetables.jpg",
+    "body_text": "I killed this fish with my bear hands. Get it, bear?",
+    "user_id": 3
+  },
+  {
+    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto/v1664372536/samples/people/boy-snow-hoodie.jpg",
+    "body_text": "Don't worry, it's not cocaine. Its asbestos.",
     "user_id": 4
   },
   {
-    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1664372535/samples/bike.jpg",
-    "body_text": "Mount Shasta, I think its a volcano too? Idk",
+    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto/v1664372533/samples/sheep.jpg",
+    "body_text": "Sheep were domesticated after dogs, for thousands of years sheep dogs had nothing to do.",
+    "user_id": 4
+  },
+  {
+    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto/v1664372531/samples/food/dessert.jpg",
+    "body_text": "What even is this? Pumpkin pie and cheese? I'm calling the cops.",
+    "user_id": 4
+  },
+  {
+    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto/v1664372531/samples/animals/cat.jpg",
+    "body_text": "This guy beat me up and stole my lunch money. #911",
+    "user_id": 4
+  },
+  {
+    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto/v1664372535/samples/bike.jpg",
+    "body_text": "Look at this nerd, she thinks she's better than us cause she doesnt walk around. Let's steal her bike.",
+    "user_id": 5
+  },
+  {
+    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto/v1664372531/samples/people/kitchen-bar.jpg",
+    "body_text": "I asked this guy to stand next to food and he actually did it. What a maniac.",
+    "user_id": 5
+  },
+  {
+    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto/v1664372540/samples/ecommerce/accessories-bag.jpg",
+    "body_text": "Ready for the nukes to start dropping. #BugOutBag",
+    "user_id": 5
+  },
+  {
+    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto/v1664372540/samples/imagecon-group.jpg",
+    "body_text": "Give me 10 million dollars and safe passage to Mexico. #hostages",
+    "user_id": 5
+  },
+  {
+    "image_filename": "https://res.cloudinary.com/dpjlscrre/image/upload/w_1000,ar_1:1,c_fill,g_auto/v1664372541/samples/food/spices.jpg",
+    "body_text": "All my ice cream turned into powder, why does this keep happening to me???",
     "user_id": 5
   }
 ]
