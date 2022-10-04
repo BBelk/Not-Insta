@@ -1,54 +1,55 @@
 <section class="container-fluid d-flex justify-content-center">
   <section class="p-0 card" style="width: 50rem;">
-    
-    
-    <img src="{{post.image_filename}}" class="card-img-top" alt="{{post.body_text}}">
-  <div class="card-body">
-    <div id="normalPost">
-    {{#compare session.user_id post.user.id operator="=="}}
-    <button id="edit-post" class="btn btn-warning" type="button" data-id="{{post.id}}">Edit</button>
-    <button id="delete-post" class="btn btn-danger" type="button" data-id="{{post.id}}">Delete</button>
-    {{/compare}}
-
     <a href="/user/{{post.user.id}}">
-      <h3 class="card-title"><img src="{{post.user.profile_image_filename}}" class="img-thumbnail rounded-circle " style="width:5%"
-            alt="profile pic placeholder">{{post.user.username}}</h3>
+      <h3 class="card-header"><img src="{{post.user.profile_image_filename}}" class="img-thumbnail rounded-circle " style="width:5%" alt="profile pic placeholder">
+        {{post.user.username}}
+      </h3>
     </a>
-    <div class="card-text">
-      <p>Likes: {{post.likes}}</p>
-      <p>Post Text: <div id="actualPost">{{post.body_text}}</div></p>
-    </div>
-    </div>
-    {{#compare session.user_id post.user.id operator="=="}}
-    <div id="editingPost" style="display:none">
-        <form class="form edit-post-form" data-id="{{post.id}}">
-      <div class="form-group">
-        <label for="body-post">Edited Post:</label>
-        <input class="form-input" type="text" id="post-input" />
+    <img src="{{post.image_filename}}" class="img" alt="{{post.body_text}}">
+    <div class="card-body">
+      <div id="normalPost" class="container row">
+        <div class="col-lg-6">
+          {{#compare session.user_id post.user.id operator="=="}}
+          <button id="edit-post" class="btn btn-warning" type="button" data-id="{{post.id}}">Edit</button>
+          <button id="delete-post" class="btn btn-danger" type="button" data-id="{{post.id}}">Delete</button>
+          {{/compare}}
+        </div>
+        <div class="col-lg-6 d-flex justify-content-end">
+          <p><i class="fa fa-heart"></i> {{post.likes}}</p>
+        </div>
+        <div class="card-text">
+          <p>Post Text: <div id="actualPost">{{post.body_text}}</div></p>
+        </div>
       </div>
-         <div class="form-group">
-         <button id="finish-post" class="btn btn-primary" type="submit"  post-id="{{post.id}}">Finish Editing Post</button>
-         </div>
-    </form>
+      {{#compare session.user_id post.user.id operator="=="}}
+      <div id="editingPost" style="display:none">
+        <form class="form edit-post-form" data-id="{{post.id}}">
+          <div class="form-group">
+            <label for="body-post">Edited Post:</label>
+            <input class="form-input" type="text" id="post-input" />
+          </div>
+          <div class="form-group">
+            <button id="finish-post" class="btn btn-primary" type="submit"  post-id="{{post.id}}">Finish Editing Post</button>
+          </div>
+        </form>
+      </div>
+      {{/compare}}
 
-    {{/compare}}
+      {{!-- this compares the logged in user to the post user --}}
+      {{!-- full list of comparers is here: https://gist.github.com/doginthehat/1890659/2a3c5a269fb2282cc9ce7526bb99f93d5559ac65 --}}
+      
+
+      {{#each post.comments}} 
+      {{#> comment-details this parent=../this}}
+      <h5>No comments</h5>
+      {{/comment-details}}
+      {{/each}}
+
+      {{!-- {{#compare }} --}}
+      {{> comment-new}}
+      {{!-- TODO add comment --}}
     </div>
-
-    {{!-- this compares the logged in user to the post user --}}
-    {{!-- full list of comparers is here: https://gist.github.com/doginthehat/1890659/2a3c5a269fb2282cc9ce7526bb99f93d5559ac65 --}}
-    
-
-    {{#each post.comments}} 
-    {{#> comment-details this parent=../this}}
-    <h5>No comments</h5>
-    {{/comment-details}}
-    {{/each}}
-
-    {{!-- {{#compare }} --}}
-    {{> comment-new}}
-    {{!-- TODO add comment --}}
-  </div>
-</section>
+  </section>
 </section>
 <script src="/js/indivpost.js"></script>
 
