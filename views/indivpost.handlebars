@@ -1,7 +1,7 @@
 <section class="container-fluid d-flex justify-content-center">
   <section class="p-0 card" style="width: 50rem;">
     <a href="/user/{{post.user.id}}">
-      <h3 class="card-header"><img src="{{post.user.profile_image_filename}}" class="img-thumbnail rounded-circle " style="width:5%" alt="profile pic placeholder">
+      <h3 class="card-header"><img src="{{post.user.profile_image_filename}}" class="img-thumbnail border-0 rounded-circle" style="width:5%" alt="profile pic placeholder">
         {{post.user.username}}
       </h3>
     </a>
@@ -19,8 +19,8 @@
           </div>
           <div class="p-0 col-6 d-flex justify-content-end">
             {{#compare session.user_id post.user.id operator="=="}}
-            <button id="edit-post" class="btn btn-warning" type="button" data-id="{{post.id}}">Edit</button>
-            <button id="delete-post" class="mx-2 btn btn-danger" type="button" data-id="{{post.id}}">Delete</button>
+            <button id="edit-post" class="btn btn-outline-secondary" type="button" data-id="{{post.id}}">Edit</button>
+            <button id="delete-post" class="mx-2 btn btn-outline-danger" type="button" data-id="{{post.id}}">Delete</button>
             {{/compare}}
           </div>
         </div>
@@ -33,12 +33,12 @@
             <input class="form-input" type="text" id="post-input" />
           </div>
           <div class="form-group">
-            <button id="finish-post" class="btn btn-primary" type="submit"  post-id="{{post.id}}">Finish Editing Post</button>
+            <button id="finish-post" class="btn btn-outline-primary" type="submit"  post-id="{{post.id}}">Finish Editing Post</button>
           </div>
         </form>
       </div>
       {{/compare}}
-
+      <hr>
       {{!-- this compares the logged in user to the post user --}}
       {{!-- full list of comparers is here: https://gist.github.com/doginthehat/1890659/2a3c5a269fb2282cc9ce7526bb99f93d5559ac65 --}}
       
